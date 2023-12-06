@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lfjNcuJAiomnMu1sSz9n1YPGNHStyoO3LW5Oj0okqYxkK6I4DaSANlkUOC+2nXWEvUuKdgJEIDEHQ+dMgFUl1Q==",
+  "success": true,
+  "projectFilePath": "D:\\Web Courses\\Code With Muteeb\\ASP.NET _Framework\\HRManagementProject\\HRMDal\\HRMDal.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dell\\.nuget\\packages\\dapper\\2.1.21\\dapper.2.1.21.nupkg.sha512"
+  ],
+  "logs": []
+}

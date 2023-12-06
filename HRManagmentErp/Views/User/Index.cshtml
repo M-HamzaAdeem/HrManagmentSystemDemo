@@ -1,0 +1,22 @@
+﻿@model HRManagmentErp.Models.LoginDetails
+<link rel="stylesheet" type="text/css" href="~/Content/login-styles.css">
+@{
+    ViewBag.Title = "Index";
+}
+<div class="login-page">
+    <div class="form">
+        @using (Html.BeginForm())
+        {
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "User Name" })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+            @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control", placeholder = "Password" })
+            @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+            <button type="submit">LOGIN</button>
+
+        }
+    <p class="text-danger"> @ViewBag.Message</p>
+        <p class="message">Not registered? @Html.ActionLink("Create an account", "SignUp", "User")</p>
+    </div>
+</div>
+

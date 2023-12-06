@@ -1,0 +1,16 @@
+﻿
+<ul class="navbar-nav ">
+    @{
+        if (Session["EmployeeData"] == null)
+        {
+            <li>@Html.ActionLink("Register", "SignUp", "User", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Login", "Index", "User", new { area = "" }, new { @class = "nav-link" })</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("LogOut", "LogOut", "User", new { area = "" }, new { @class = "nav-link" })</li>
+        }
+    }
+
+</ul>
+ 

@@ -1,0 +1,150 @@
+﻿
+
+@model HRMDal.Models.EmployeeExtendedDto
+
+@{
+    ViewBag.Title = "EmployeeConfig";
+}
+<section>
+    <div class="container py-5 ">
+        <div class="row">
+            <div class="col-lg-4 ">
+                <div class="card ">
+                    <div class="card-body text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3">@Html.DisplayFor(model => model.UserName)</h5>
+                        <p class="text-muted mb-1">@Html.DisplayFor(model => model.DesiginationName)</p>
+                        <p class="text-muted mb-2">@Html.DisplayFor(model => model.DepartmentName)</p>
+                        <p class="message"> @Html.ActionLink("BACK", "Index", "Admin", null, new { @class = "btn btn-success" })</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Full Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.Email)</p>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Mobile</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.MobileNo)</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Reporting Officer</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.RoName)</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.EmpAddress)</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Country</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Html.DisplayFor(model => model.CountryName)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@using (Html.BeginForm("EmployeeConfig", "Admin", FormMethod.Post, Model))
+{
+    @Html.HiddenFor(model => model.UserName)
+
+    <table class="table table-striped " style="margin-bottom: 8%; margin-left: 5%; width: 90%;">
+        <thead class="table-Success">
+            <tr>
+
+                <th scope="col">Department</th>
+                <th scope="col">Desigination</th>
+                <th scope="col">Reporting officer</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="p-3">
+                    @Html.DropDownListFor(
+                         model => model.DepartmentName,
+                         new SelectList(
+                         new List<Object>{
+                                  new { value = "Human Resource" , text = "Human Resource"  },
+                                  new { value = "Admin" , text = "Admin"  },
+                                  new { value = "Technical Support" , text = "Technical Support"  },
+                                  new { value = "Frontend Department" , text = "Frontend Department"  },
+                                  new { value = "Backend Department" , text = "Backend Department"  }
+                    },
+                     "value",
+                     "text",
+                     Model.DepartmentName
+                     )
+
+                    )
+                </td>
+                <td class="p-3">
+                    @Html.DropDownListFor(
+                                 model => model.DesiginationName,
+                                 new SelectList(
+                                 new List<Object>{
+                                          new { value = "Assistant Manager" , text = "Assistant Manager"  },
+                                          new { value = "Manager" , text = "Manager"  },
+                                          new { value = "General Manager" , text = "General Manager"  },
+                                          new { value = "Director General" , text = "Director General"  }
+                         },
+                             "value",
+                             "text",
+                             Model.DesiginationName
+                             )
+
+                        )
+                </td>
+                <td class="p-3">@Html.EditorFor(model => model.RoUserName)</td>
+                <td> <button class="btn btn-lg btn-success" type="submit">Update</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+}
